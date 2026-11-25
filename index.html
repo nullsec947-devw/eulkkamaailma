@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7866e8">
+  <meta name="description" content="Hauska ja värikäs eläinten oppimismaailma lapsille.">
+  <title>Eläinmaailma 2.0 – suuri eläinseikkailu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="top-progress"><div id="topProgressBar"></div></div>
+
+  <header class="site-header">
+    <a class="brand" href="#etusivu" aria-label="Eläinmaailma etusivu">
+      <span class="brand-mark">🐾</span><span>E-läin<span class="brand-light">maa-il-ma</span><small>PIE-NIÄ SEIK-KAI-LU-JA, SUU-RI-A OI-VAL-LUK-SI-A</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Avaa valikko" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#maailma">Maa-il-ma</a>
+      <a href="#elaimet">E-läi-met</a>
+      <a href="#paivan-elain">Päi-vän e-läin</a>
+      <a href="#pelit">Pe-lit</a>
+      <a href="#passi">Pas-si</a>
+    </nav>
+    <div class="header-score">⭐ <span id="headerPoints">0</span></div>
+  </header>
+
+  <main>
+    <section class="hero" id="etusivu">
+      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+      <div class="hero-copy">
+        <div class="hero-label"><span class="pulse-dot"></span> VAL-MIS SEIK-KAI-LUUN?</div>
+        <h1>Ter-ve-tu-lo-a<br><span>E-läin-maa-il-maan!</span></h1>
+        <p class="hero-lead">Läh-de tut-ki-maan maa-il-maa! Ta-paa ih-meel-li-si-ä e-läi-mi-ä, opi haus-ko-ja tie-to-ja ja pe-laa op-pi-mis-pe-le-jä.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#maailma">A-loi-ta seik-kai-lu <span>→</span></a>
+          <button class="button button-quiet" id="heroRandom">Yl-lä-tys-e-läin 🎁</button>
+        </div>
+        <div class="hero-facts"><span>🌍 7 maan-o-saa</span><span>🐾 18 e-läin-tä</span><span>🎮 3 pe-li-ä</span></div>
+      </div>
+      <div class="hero-scene" aria-label="Kuvitus eläimistä ja maapallosta">
+        <div class="sun-disc"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="earth">🌎</div>
+        <div class="float-animal float-lion">🦁</div><div class="float-animal float-panda">🐼</div>
+        <div class="float-animal float-giraffe">🦒</div><div class="float-animal float-penguin">🐧</div>
+        <span class="scene-star star-a">✦</span><span class="scene-star star-b">✧</span><span class="scene-star star-c">✦</span>
+        <div class="scene-cloud cloud-a"></div><div class="scene-cloud cloud-b"></div>
+      </div>
+      <a class="scroll-cue" href="#maailma">VIE-RE-TÄÄN ALAS <span>↓</span></a>
+    </section>
+
+    <section class="section world-section" id="maailma">
+      <div class="section-heading">
+        <span class="eyebrow">01 / MAA-IL-MAN-KIER-ROS</span>
+        <h2>Mi-hin läh-de-tään?</h2>
+        <p>Va-lit-se maan-o-sa. Jo-kai-ses-sa o-dot-taa uu-si-a e-läi-mi-ä!</p>
+      </div>
+      <div class="continent-grid" id="continentGrid"></div>
+      <div class="world-note"><span>💡</span><p>Vink-ki: nap-sau-ta maan-o-saa, niin nä-et sen e-läi-met.</p></div>
+    </section>
+
+    <section class="section animal-section" id="elaimet">
+      <div class="section-heading">
+        <span class="eyebrow">02 / E-LÄIN-TEN IH-MEEL-LI-NEN MAA-IL-MA</span>
+        <h2>Kei-tä ta-paa-tam-me?</h2>
+        <p>Tu-tus-tu e-läi-miin. Jo-kai-sel-la on oma tari-nan-sa!</p>
+      </div>
+      <div class="animal-toolbar">
+        <label class="search-box"><span>🔎</span><input id="animalSearch" type="search" placeholder="E-tsi e-läin-tä..." aria-label="Etsi eläintä"></label>
+        <div class="filter-row" id="animalFilters"></div>
+      </div>
+      <div class="animal-grid" id="animalGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>Ei löy-ty-nyt e-läi-mi-ä. Ko-kei-le toi-sta ha-ku-a!</p>
+    </section>
+
+    <section class="daily-section" id="paivan-elain">
+      <div class="daily-decoration decor-left">✦ 🦋</div><div class="daily-decoration decor-right">🌈 ✧</div>
+      <div class="daily-card">
+        <div class="daily-tag">🎁 PÄI-VÄN YL-LÄ-TYS</div>
+        <h2>Päi-vän e-läin</h2>
+        <p class="daily-intro">Jo-ka päi-vä uu-si e-läin ja haus-ka tie-to!</p>
+        <div id="dailyAnimal" class="daily-animal">
+          <div class="daily-question">❔</div><h3>Ku-ka pii-les-ke-lee?</h3>
+          <p>Pal-jas-ta päi-vän e-läin pai-nik-kees-ta!</p>
+        </div>
+        <div class="daily-actions">
+          <button class="button button-primary" id="revealDaily">Pal-jas-ta e-läin! ✨</button>
+          <button class="button button-sound" id="speakDaily">🔊 Kuun-te-le</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section games-section" id="pelit">
+      <div class="section-heading">
+        <span class="eyebrow">03 / OPI JA PE-LAA</span>
+        <h2>Pe-li-het-ki!</h2>
+        <p>Ko-kei-le tai-to-ja-si ja ke-rää täh-ti-pis-tei-tä.</p>
+      </div>
+      <div class="game-select-grid">
+        <article class="game-card game-pink"><div class="game-icon">🧠</div><h3>Mi-kä e-läin?</h3><p>Ar-vaa e-läin ku-van ja vih-jei-den a-vul-la.</p><button class="button game-launch" data-game="quiz">Pe-laa nyt →</button></article>
+        <article class="game-card game-blue"><div class="game-icon">🃏</div><h3>Muis-ti-pe-li</h3><p>Löy-dä sa-man e-läi-men kak-si kort-ti-a.</p><button class="button game-launch" data-game="memory">Pe-laa nyt →</button></article>
+        <article class="game-card game-green"><div class="game-icon">📏</div><h3>Iso vai pie-ni?</h3><p>Va-lit-se kah-des-ta e-läi-mes-tä suu-rem-pi.</p><button class="button game-launch" data-game="size">Pe-laa nyt →</button></article>
+      </div>
+      <div class="game-panel" id="gameArea" aria-live="polite">
+        <div class="game-welcome"><span>🎮</span><h3>Mi-kä pe-li va-lit-aan?</h3><p>Va-lit-se yk-si pe-li yl-häältä ja a-loi-ta!</p></div>
+      </div>
+    </section>
+
+    <section class="passport-section" id="passi">
+      <div class="passport-card">
+        <div class="passport-top"><div><span class="eyebrow">04 / MI-NUN OP-PI-MIS-MAT-KA-NI</span><h2>Seik-kai-li-jan pas-si</h2><p>Jo-kai-nen op-pi-mis-het-ki vie si-nu-a eteen-päin!</p></div><div class="passport-stamp">🏅</div></div>
+        <div class="stats-grid">
+          <div class="stat-box stat-purple"><span>⭐</span><strong id="points">0</strong><small>pis-tet-tä</small></div>
+          <div class="stat-box stat-orange"><span>🌍</span><strong id="visited">0/7</strong><small>maan-o-saa</small></div>
+          <div class="stat-box stat-green"><span>🐾</span><strong id="learned">0</strong><small>opit-tua e-läin-tä</small></div>
+        </div>
+        <div class="passport-progress"><div class="progress-label"><span>Seik-kai-lun e-te-ne-mi-nen</span><strong id="progressText">0 %</strong></div><div class="progress-track"><div id="passportProgress"></div></div></div>
+        <button class="reset-button" id="resetProgress">Nol-laa pas-si</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand">🐾 E-läin-maa-il-ma 2.0</div><p>Pie-ni-ä as-ke-li-a. Suu-ri-a oi-val-luk-si-a. 🌈</p><a href="#etusivu">Ta-kai-sin y-lös ↑</a></footer>
+
+  <dialog id="animalDialog" class="animal-dialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Sulje">×</button>
+    <div id="animalDetails"></div>
+    <button class="button button-sound detail-speak" id="speakAnimal">🔊 Kuun-te-le e-läi-mes-tä</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
